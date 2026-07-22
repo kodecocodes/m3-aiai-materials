@@ -1,0 +1,92 @@
+/// Copyright (c) 2026 Kodeco Inc. See COPYRIGHT for details.
+[
+  {
+    "id": 1,
+    "answer": "Indonesia",
+    "clues": [
+      "This country has more than 17,000 islands, making it the world's largest archipelago.",
+      "It is home to the Komodo dragon, the largest living lizard on Earth.",
+      "It's capital is being moved from Jakarta to a new city called Nusantara.",
+      "The islands of Java, Sumatra, and Bali all belong to this country."
+    ],
+    "funFact": "Indonesia spans three time zones and sits on the Pacific Ring of Fire with over 120 active volcanoes."
+  },
+  {
+    "id": 2,
+    "answer": "Japan",
+    "clues": [
+      "This island nation calls itself the Land of the Rising Sun.",
+      "It's bullet trains average delays of less than one minute per year.",
+      "Every spring, millions of people gather to celebrate the blooming of it's iconic pink cherry blossoms.",
+      "It's capital, Tokyo, is the most populous metropolitan area on Earth."
+    ],
+    "funFact": "Japan has more than 5 million vending machines, about one for every 25 people."
+  },
+  {
+    "id": 4,
+    "answer": "Brazil",
+    "clues": [
+      "This country covers nearly half of an entire continent.",
+      "It is the only country in the Americas whose official language is Portuguese.",
+      "Around 60% of the Amazon rainforest lies within its borders.",
+      "It's most famous landmark is the Christ the Redeemer statue in Rio de Janeiro."
+    ],
+    "funFact": "Brazil has won the FIFA World Cup five times, more than any other nation."
+  },
+  {
+    "id": 5,
+    "answer": "Egypt",
+    "clues": [
+      "This country is often called the gift of a great river.",
+      "It is a transcontinental country, spanning Africa and Asia.",
+      "A vital man-made canal here connects the Mediterranean and Red Seas.",
+      "It is home to the Great Pyramid of Giza, the last ancient wonder still standing."
+    ],
+    "funFact": "The Great Pyramid was the tallest human-made structure in the world for over 3,800 years."
+  },
+  {
+    "id": 6,
+    "answer": "Switzerland",
+    "clues": [
+      "This landlocked country has four official national languages.",
+      "More than half of this country's total land area is covered by the Alps.",
+      "It is famous for precision watches, chocolate, and secure banks.",
+      "The Matterhorn rises on its border with Italy."
+    ],
+    "funFact": "Located deep under the Alps, Switzerland's Gotthard Base Tunnel is the longest and deepest rail tunnel in the world."
+  },
+  {
+    "id": 8,
+    "answer": "Australia",
+    "clues": [
+      "This country is also a continent.",
+      "It is home to the Great Barrier Reef.",
+      "Over 80% of it's plants and animals are found nowhere else in the world.",
+      "It's capital is Canberra, not Sydney or Melbourne."
+    ],
+    "funFact": "Australia has over 10,000 beaches, meaning you could visit a new beach every day for over 27 years."
+  },
+  {
+    "id": 9,
+    "answer": "Canada",
+    "clues": [
+      "This country has the longest coastline in the world.",
+      "The beloved children's character Winnie the Pooh was named after a city in this country.",
+      "It's national animal is the North American beaver.",
+      "It produces over 70% of the world's maple syrup."
+    ],
+    "funFact": "Canada operates a special postal code, H0H 0H0, exclusively for letters addressed to Santa Claus."
+  },
+  {
+    "id": 10,
+    "answer": "Italy",
+    "clues": [
+      "This country is shaped remarkably like a boot.",
+      "Some of history's most renowned artists, including Leonardo da Vinci and Michelangelo, were born here.",
+      "One of it's most famous cities is built entirely on a lagoon and uses canals instead of roads.",
+      "It is home to Europe's only three active volcanoes: Mount Etna, Stromboli, and Mount Vesuvius."
+    ],
+    "funFact": "There is a free, 24-hour public red wine fountain located in the Abruzzo region."
+  }
+]
+ 
