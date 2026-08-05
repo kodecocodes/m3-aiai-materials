@@ -36,7 +36,7 @@ enum GameModes: String, CaseIterable, Identifiable {
     switch self {
     case .classic: "Four clues for each country, take your time to guess"
     case .streak: "Endless run. One wrong guess ends it."
-    case .blitz: "Each clue vanishes after 20 seconds."
+    case .blitz: "Each clue vanishes after 1 minute. No going back."
     }
   }
 
