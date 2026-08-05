@@ -10,7 +10,7 @@
 /// even if clues remain. For the standard user, a wrong guess is nearly free (you just see the next clue).
 /// In Streak mode, every guess is a real gamble: "I'm 80% sure it's Chile… but is 80% enough to bet the whole run?".
 ///
-/// **Blitz**: Users can see one clue for a maximum time of 1 minute (or less). Once the timer expires - the next clue is shown automatically.
+/// **Blitz**: Users can see one clue for a maximum time of 20 seconds. Once the timer expires - the next clue is shown automatically.
 /// Users can’t go back to see the previous clue. The idea is users will have to read the clues in this time and also remember them to make the guess.
 /// The point system now changes. It will be 40 (end of 1st clue), 30 (end of 2nd clue), 20 (end of 3rd clue), 10 (end of 4th clue). In this mode, the users get an opportunity to score more points. Maximum points for each round will be 40 now (instead of 20 in standard mode).
 
@@ -36,7 +36,7 @@ enum GameModes: String, CaseIterable, Identifiable {
     switch self {
     case .classic: "Four clues for each country, take your time to guess"
     case .streak: "Endless run. One wrong guess ends it."
-    case .blitz: "Each clue vanishes after 1 minute. No going back."
+    case .blitz: "Each clue vanishes after 20 seconds."
     }
   }
 

@@ -19,86 +19,34 @@ struct ClueView: View {
 struct TopView: View {
   @Environment(GameSessionManager.self)
   private var gameSession
-  @State private var secondsRemaining = GameSessionManager.blitzClueDurationSeconds
-
   var body: some View {
-    Group {
-      if gameSession.currentMode == .streak {
-        HStack {
-          Text("Clue \(gameSession.clueIndex + 1) of \(gameSession.pointsPerClue.count)")
-            .font(.footnote.weight(.medium))
-            .foregroundStyle(.secondary)
-          Spacer()
-          HStack(spacing: 4) {
-            Image(systemName: "flame.fill")
-              .font(.footnote)
-              .foregroundStyle(Color.accent)
-            Text("\(gameSession.streakLength)")
-              .font(.footnote.weight(.semibold))
-              .foregroundStyle(Color.accent)
-          }
-        }
-        .padding(.horizontal, Constants.General.screenPadding)
-        .padding(.top, 28)
-      } else {
-        HStack(spacing: 6) {
-          ForEach(0..<gameSession.pointsPerClue.count, id: \.self) { index in
-            Capsule()
-              .fill(index <= gameSession.clueIndex ? Color.accent : Color.slightProminent)
-              .frame(height: 4)
-          }
-        }
-        .padding(.horizontal, Constants.General.screenPadding)
-        .padding(.top, 16)
-
-        HStack {
-          Text("Clue \(gameSession.clueIndex + 1) of \(gameSession.pointsPerClue.count)")
-            .font(.footnote.weight(.medium))
-            .foregroundStyle(.secondary)
-          Spacer()
-          if gameSession.currentMode == .blitz {
-            HStack(spacing: 4) {
-              Image(systemName: "timer")
-                .font(.footnote)
-              Text(formattedTime(secondsRemaining))
-                .font(.footnote.weight(.semibold).monospacedDigit())
-            }
-            .foregroundStyle(secondsRemaining <= 10 ? Color.tryAgain : Color.accent)
-            .padding(.trailing, 12)
-          }
-          Text("\(gameSession.pointsAtStake) points")
-            .font(.footnote.weight(.semibold))
-            .foregroundStyle(Color.accent)
-        }
-        .padding(.horizontal, Constants.General.screenPadding)
-        .padding(.top, 12)
+    HStack(spacing: 6) {
+      ForEach(0..<gameSession.clueCount, id: \.self) { index in
+        Capsule()
+          .fill(index <= gameSession.clueIndex ? Color.accent : Color.slightProminent)
+          .frame(height: 4)
       }
     }
-    .task(id: blitzTimerID) {
-      guard gameSession.currentMode == .blitz else { return }
-      secondsRemaining = GameSessionManager.blitzClueDurationSeconds
-      while secondsRemaining > 0 {
-        do {
-          try await Task.sleep(for: .seconds(1))
-        } catch {
-          return
-        }
-        guard !Task.isCancelled else { return }
-        secondsRemaining -= 1
+    .padding(.horizontal, Constants.General.screenPadding)
+    .padding(.top, 16)
+
+    HStack {
+      Text("Clue \(gameSession.clueIndex + 1) of \(gameSession.clueCount)")
+        .font(.footnote.weight(.medium))
+        .foregroundStyle(.secondary)
+      Spacer()
+      if gameSession.currentMode == .blitz {
+        Text("\(gameSession.blitzSecondsRemaining)s")
+          .font(.footnote.weight(.semibold))
+          .foregroundStyle(gameSession.blitzSecondsRemaining <= 5 ? Color.tryAgain : Color.accent)
+          .monospacedDigit()
       }
-      guard gameSession.phase == .clue, !gameSession.isLastClue else { return }
-      gameSession.revealNextClue()
+      Text("\(gameSession.pointsAtStake) points")
+        .font(.footnote.weight(.semibold))
+        .foregroundStyle(Color.accent)
     }
-  }
-
-  private var blitzTimerID: String {
-    "\(gameSession.questionIndex)-\(gameSession.clueIndex)-\(gameSession.currentMode.rawValue)"
-  }
-
-  private func formattedTime(_ seconds: Int) -> String {
-    let minutes = seconds / 60
-    let remainingSeconds = seconds % 60
-    return String(format: "%d:%02d", minutes, remainingSeconds)
+    .padding(.horizontal, Constants.General.screenPadding)
+    .padding(.top, 12)
   }
 }
 
@@ -112,6 +60,9 @@ struct CenterView: View {
         .multilineTextAlignment(.center)
         .lineSpacing(6)
         .padding(.horizontal, 32)
+        .id(gameSession.clueIndex)
+        .transition(.opacity)
+        .animation(.easeInOut(duration: 0.25), value: gameSession.clueIndex)
     }
   }
 }
@@ -121,6 +72,10 @@ struct BottomView: View {
   private var gameSession
   @State private var guess = ""
   @FocusState private var guessFieldFocused: Bool
+
+  private var showsClueNavigation: Bool {
+    gameSession.currentMode == .classic
+  }
 
   var body: some View {
     VStack(spacing: 16) {
@@ -137,7 +92,7 @@ struct BottomView: View {
       .buttonStyle(PrimaryButtonStyle())
       .disabled(guess.trimmingCharacters(in: .whitespaces).isEmpty)
 
-      if gameSession.currentMode == .classic {
+      if showsClueNavigation {
         Button("Previous Clue") {
           gameSession.revealPreviousClue()
         }
@@ -145,13 +100,6 @@ struct BottomView: View {
         .disabled(gameSession.isFirstClue)
         .padding(.bottom, 4)
 
-        Button("Next Clue") {
-          gameSession.revealNextClue()
-        }
-        .buttonStyle(SecondaryButtonStyle())
-        .disabled(gameSession.isLastClue)
-        .padding(.bottom, 6)
-      } else if gameSession.currentMode == .blitz {
         Button("Next Clue") {
           gameSession.revealNextClue()
         }

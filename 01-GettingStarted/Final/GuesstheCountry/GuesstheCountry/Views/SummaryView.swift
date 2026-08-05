@@ -12,6 +12,11 @@ struct SummaryView: View {
 struct HeaderView: View {
   @Environment(GameSessionManager.self)
   private var gameSession
+
+  private var streakCount: Int {
+    gameSession.results.filter(\.isCorrect).count
+  }
+
   var body: some View {
     if gameSession.currentMode == .streak {
       Text("Streak Ended")
@@ -19,10 +24,10 @@ struct HeaderView: View {
         .tracking(1)
         .textCase(.uppercase)
         .foregroundStyle(.secondary)
-      Text("\(gameSession.streakLength)")
+      Text("\(streakCount)")
         .font(.system(size: 72, weight: .bold, design: .rounded))
         .foregroundStyle(Color.accent)
-      Text(gameSession.streakLength == 1 ? "country" : "countries")
+      Text(streakCount == 1 ? "country in a row" : "countries in a row")
         .font(.body)
         .foregroundStyle(.secondary)
     } else {
@@ -53,20 +58,16 @@ struct BodyView: View {
           VStack(alignment: .leading, spacing: 2) {
             Text(result.answer)
               .font(.subheadline.weight(.semibold))
-            if gameSession.currentMode != .streak {
-              Text(result.isCorrect
-                ? "\(result.cluesUsed) \(result.cluesUsed == 1 ? "clue" : "clues") used"
-                : "Missed")
-              .font(.caption)
-              .foregroundStyle(.secondary)
-            }
+            Text(result.isCorrect
+              ? "\(result.cluesUsed) \(result.cluesUsed == 1 ? "clue" : "clues") used"
+              : "Missed")
+            .font(.caption)
+            .foregroundStyle(.secondary)
           }
           Spacer()
-          if gameSession.currentMode != .streak {
-            Text("+\(result.score)")
-              .font(.subheadline.weight(.bold))
-              .foregroundStyle(result.isCorrect ? Color.success : .secondary)
-          }
+          Text("+\(result.score)")
+            .font(.subheadline.weight(.bold))
+            .foregroundStyle(result.isCorrect ? Color.success : .secondary)
         }
         .padding(.vertical, 12)
         .padding(.horizontal, 16)

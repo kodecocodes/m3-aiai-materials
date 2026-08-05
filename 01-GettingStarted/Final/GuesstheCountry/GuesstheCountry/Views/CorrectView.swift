@@ -24,47 +24,26 @@ struct CorrectView: View {
         .font(.system(size: 40, weight: .bold))
         .padding(.top, 4)
 
-      Group {
-        if gameSession.currentMode == .streak {
-          HStack(spacing: 24) {
-            VStack(spacing: 2) {
-              HStack(spacing: 6) {
-                Image(systemName: "flame.fill")
-                  .font(.system(.title, design: .rounded).weight(.bold))
-                  .foregroundStyle(Color.accent)
-                Text("\(gameSession.streakLength)")
-                  .font(.system(.title, design: .rounded).weight(.bold))
-                  .foregroundStyle(Color.accent)
-              }
-              Text(gameSession.streakLength == 1 ? "country" : "countries")
-                .font(.caption)
-                .foregroundStyle(.secondary)
-            }
-            .frame(maxWidth: .infinity)
-          }
-        } else {
-          HStack(spacing: 24) {
-            VStack(spacing: 2) {
-              Text("+\(score)")
-                .font(.system(.title, design: .rounded).weight(.bold))
-                .foregroundStyle(Color.success)
-              Text("points")
-                .font(.caption)
-                .foregroundStyle(.secondary)
-            }
-            .frame(maxWidth: .infinity)
-            Divider().frame(height: 40)
-            VStack(spacing: 2) {
-              Text("\(cluesUsed)/\(gameSession.pointsPerClue.count)")
-                .font(.system(.title, design: .rounded).weight(.bold))
-                .foregroundStyle(Color.accent)
-              Text(cluesUsed == 1 ? "clue used" : "clues used")
-                .font(.caption)
-                .foregroundStyle(.secondary)
-            }
-            .frame(maxWidth: .infinity)
-          }
+      HStack(spacing: 24) {
+        VStack(spacing: 2) {
+          Text("+\(score)")
+            .font(.system(.title, design: .rounded).weight(.bold))
+            .foregroundStyle(Color.success)
+          Text("points")
+            .font(.caption)
+            .foregroundStyle(.secondary)
         }
+        .frame(maxWidth: .infinity)
+        Divider().frame(height: 40)
+        VStack(spacing: 2) {
+          Text("\(cluesUsed)/\(gameSession.clueCount)")
+            .font(.system(.title, design: .rounded).weight(.bold))
+            .foregroundStyle(Color.accent)
+          Text(cluesUsed == 1 ? "clue used" : "clues used")
+            .font(.caption)
+            .foregroundStyle(.secondary)
+        }
+        .frame(maxWidth: .infinity)
       }
       .padding(.vertical, 20)
       .background(Color.muted)

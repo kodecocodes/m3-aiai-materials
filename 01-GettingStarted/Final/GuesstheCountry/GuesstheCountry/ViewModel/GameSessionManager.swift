@@ -10,7 +10,7 @@ class GameSessionManager {
 
   static let classicPointsPerClue = [20, 15, 10, 5]
   static let blitzPointsPerClue = [40, 30, 20, 10]
-  static let blitzClueDurationSeconds = 20
+  static let blitzClueDuration = 20
 
   var totalPoints: Int = 0
   var round = 1
@@ -18,6 +18,9 @@ class GameSessionManager {
   var questions: [Country] = []
   var questionIndex: Int = 0
   var results: [CountryGuessed] = []
+  var blitzSecondsRemaining = blitzClueDuration
+
+  private var blitzTimerTask: Task<Void, Never>?
 
   init() {
     loadCountries()
@@ -27,20 +30,20 @@ class GameSessionManager {
     currentMode == .blitz ? Self.blitzPointsPerClue : Self.classicPointsPerClue
   }
 
+  var clueCount: Int {
+    pointsPerClue.count
+  }
+
   var isFirstClue: Bool {
     clueIndex == 0
   }
 
   var isLastClue: Bool {
-    clueIndex == pointsPerClue.count - 1
+    clueIndex == clueCount - 1
   }
 
   var pointsAtStake: Int {
     pointsPerClue[clueIndex]
-  }
-
-  var streakLength: Int {
-    results.filter { $0.isCorrect }.count
   }
 
   var currentQuestion: Country? {
@@ -56,17 +59,20 @@ class GameSessionManager {
   }
 
   func startGame(mode: GameModes) {
+    stopBlitzTimer()
     currentMode = mode
     totalPoints = 0
     round = 1
-    clueIndex = 0
     questionIndex = 0
+    clueIndex = 0
     results = []
     questions = self.allCountries.shuffled()
     phase = .clue
+    startBlitzTimerIfNeeded()
   }
 
   func endRound() {
+    stopBlitzTimer()
     phase = .summary
   }
 
@@ -81,20 +87,24 @@ class GameSessionManager {
     guard isLastClue == false else { return }
     clueIndex += 1
     phase = .clue
+    startBlitzTimerIfNeeded()
   }
 
   func advanceToNextQuestion() {
     if isLastQuestion {
+      stopBlitzTimer()
       phase = .summary
       return
     }
     questionIndex += 1
     clueIndex = 0
     phase = .clue
+    startBlitzTimerIfNeeded()
   }
 
   func submitGuess(_ guess: String) {
     guard let question = currentQuestion else { return }
+    stopBlitzTimer()
 
     if matches(guess, answer: question.answer) {
       let score = pointsAtStake
@@ -110,7 +120,7 @@ class GameSessionManager {
 
       phase = .correct(score: score, cluesUsed: cluesUsed)
     } else if currentMode == .streak {
-      // Wrong guess in streak mode ends the run immediately
+      // In streak mode a wrong guess ends the run immediately
       results.append(
         CountryGuessed(
           answer: question.answer,
@@ -119,15 +129,53 @@ class GameSessionManager {
           score: 0))
       phase = .summary
     } else if isLastClue {
-      results.append(
-        CountryGuessed(
-          answer: question.answer,
-          isCorrect: false,
-          cluesUsed: pointsPerClue.count,
-          score: 0))
-      phase = .revealed
+      failCurrentQuestion()
     } else {
       phase = .incorrect
+    }
+  }
+
+  private func failCurrentQuestion() {
+    guard let question = currentQuestion else { return }
+    results.append(
+      CountryGuessed(
+        answer: question.answer,
+        isCorrect: false,
+        cluesUsed: clueCount,
+        score: 0))
+    phase = .revealed
+  }
+
+  private func startBlitzTimerIfNeeded() {
+    stopBlitzTimer()
+    guard currentMode == .blitz, phase == .clue else { return }
+
+    blitzSecondsRemaining = Self.blitzClueDuration
+    blitzTimerTask = Task { @MainActor [weak self] in
+      while let self, self.blitzSecondsRemaining > 0 {
+        try? await Task.sleep(for: .seconds(1))
+        guard !Task.isCancelled else { return }
+        self.blitzSecondsRemaining -= 1
+      }
+      guard let self, !Task.isCancelled else { return }
+      self.handleBlitzTimerExpired()
+    }
+  }
+
+  private func stopBlitzTimer() {
+    blitzTimerTask?.cancel()
+    blitzTimerTask = nil
+  }
+
+  private func handleBlitzTimerExpired() {
+    guard currentMode == .blitz, phase == .clue else { return }
+
+    if isLastClue {
+      stopBlitzTimer()
+      failCurrentQuestion()
+    } else {
+      clueIndex += 1
+      startBlitzTimerIfNeeded()
     }
   }
 

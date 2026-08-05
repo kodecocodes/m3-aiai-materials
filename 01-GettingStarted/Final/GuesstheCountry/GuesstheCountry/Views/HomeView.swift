@@ -12,7 +12,7 @@ struct HomeView: View {
       Spacer()
       TitleView()
       GameModesView(selectedGameMode: $selectedGameMode)
-      PointsView(selectedGameMode: $selectedGameMode)
+      PointsView(selectedGameMode: selectedGameMode)
       Spacer()
       StartGameView(selectedGameMode: selectedGameMode) // read-only selectedGameMode
     }
@@ -90,26 +90,20 @@ struct GameModesView: View {
 }
 
 struct PointsView: View {
-  @Environment(GameSessionManager.self)
-  private var gameSession
-  @Binding var selectedGameMode: GameModes
+  let selectedGameMode: GameModes
+
+  private var pointsLabel: String {
+    let points = selectedGameMode == .blitz
+      ? GameSessionManager.blitzPointsPerClue
+      : GameSessionManager.classicPointsPerClue
+    return points.map(String.init).joined(separator: " · ") + " points by clue"
+  }
 
   var body: some View {
-    Text(pointsMessage)
+    Text(pointsLabel)
       .font(.caption)
       .foregroundStyle(.secondary)
       .padding(.top, 14)
-  }
-
-  private var pointsMessage: String {
-    switch selectedGameMode {
-    case .streak:
-      "1 point per correct guess"
-    case .blitz:
-      "40 · 30 · 20 · 10 points by clue"
-    case .classic:
-      "20 · 15 · 10 · 5 points by clue"
-    }
   }
 }
 
