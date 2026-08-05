@@ -34,3 +34,9 @@ Users can see one clue for a maximum time of 1 minute (or less). Once the timer 
 The point system now changes. It will be 40 (end of 1st clue), 30 (end of 2nd clue), 20 (end of 3rd clue), 10 (end of 4th clue). In this mode, the users get an opportunity to score more points. Maximum points for each round will be 40 now (instead of 20 in standard mode).
 Make sure the message in the first screen correctly describes this scoring.
 ```
+
+## Lesson 3
+
+```
+run the app on the simulator. start a classic game. guess the country correctly in 2 rounds, then choose the wrong one in the 3rd round, choose it correctly on the next attempt, then end the round.
+```
