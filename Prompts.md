@@ -12,6 +12,11 @@ give me a brief on this project
 give me more details on the architecture and the views, use code snippets from the project to help explain it.
 ```
 
+```
+give me a graph on how the views navigate to each other
+```
+
+
 ## Lesson 2.2
 
 ```
@@ -33,5 +38,13 @@ It will be 40 (end of 1st clue), 30 (end of 2nd clue), 20 (end of 3rd clue), 10 
 ## Lesson 3
 
 ```
-run the app on the simulator. start a classic game. guess the country correctly in 2 rounds, then choose the wrong one in the 3rd round, choose it correctly on the next attempt, then end the round.
+what do you see on the screen of the iPhone 17 Pro simulator
+```
+
+```
+start a classic game. guess the country correctly in 2 rounds, then choose the wrong one in the 3rd round, choose it correctly on the next attempt, then end the round.
+```
+
+```
+Run the app using Xcode tools on the iPhone 17 Pro simulator, then describe what you can see on the main screen
 ```
