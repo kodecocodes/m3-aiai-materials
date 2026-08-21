@@ -3,7 +3,7 @@
 ## Lesson 1
 
 ```
-give me a brief on this project
+Give me a brief overview of this project
 ```
 
 ## Lesson 2.1
