@@ -30,6 +30,8 @@ In Streak mode, every guess is a real gamble: "I'm 80% sure it's Chile… but is
 
 ### Demo 03: Using Cursor to Implement Blitz Mode
 
+### Demo 01: Using AI Agents to Interact With Your App in the Simulator
+
 ```text
 This app doesn't implement the Blitz mode, implement the feature following the description of this game mode:
 
@@ -41,6 +43,8 @@ In this mode, the users get an opportunity to score more points. Maximum points 
 ```
 
 ## Lesson 3: Connecting the Simulator to your AI Agent
+
+### Demo 02: Connecting Cursor to Xcode's MCP
 
 ```text
 what do you see on the screen of the iPhone 17 Pro simulator
