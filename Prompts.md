@@ -7,7 +7,7 @@ give me a brief on this project
 ```
 ## Lesson 2: Building on the Guessing Game
 
-### Lesson 2.1
+### Demo 01: Introduction to the Guessing Game
 
 ```text
 give me more details on the architecture and the views, use code snippets from the project to help explain it.
@@ -17,7 +17,7 @@ give me more details on the architecture and the views, use code snippets from t
 give me a graph on how the views navigate to each other
 ```
 
-### Lesson 2.2
+### Demo 02: Using Xcode to Create Streak Mode
 
 ```text
 the app is missing the implementation of the streak mode. implement the feature considering the description of this game mode:
@@ -28,7 +28,7 @@ For the standard user, a wrong guess is nearly free (you just see the next clue)
 In Streak mode, every guess is a real gamble: "I'm 80% sure it's Chile… but is 80% enough to bet the whole run?".
 ```
 
-### Lesson 2.3
+### Demo 03: Using Cursor to Implement Blitz Mode
 
 ```text
 This app doesn't implement the Blitz mode, implement the feature following the description of this game mode:
