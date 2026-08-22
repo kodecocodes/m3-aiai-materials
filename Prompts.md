@@ -21,7 +21,8 @@ give me a graph on how the views navigate to each other
 ```text
 the app is missing the implementation of the streak mode. implement the feature considering the description of this game mode:
 
-Streak mode user takes the risk and continues to play the next rounds. The risk is: A wrong guess ends the run instantly, even if clues remain. For the standard user, a wrong guess is nearly free (you just see the next clue). In Streak mode, every guess is a real gamble: "I'm 80% sure it's Chile… but is 80% enough to bet the whole run?".
+Streak mode user takes the risk and continues to play the next rounds. The risk is: A wrong guess ends the run instantly, even if clues remain.
+For the standard user, a wrong guess is nearly free (you just see the next clue). In Streak mode, every guess is a real gamble: "I'm 80% sure it's Chile… but is 80% enough to bet the whole run?".
 ```
 
 ## Lesson 2.3
