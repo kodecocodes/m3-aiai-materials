@@ -30,7 +30,7 @@ give me more details on the architecture and the views, use code snippets from t
 give me a graph on how the views navigate to each other
 ```
 
-### Demo 02: Using Xcode to Create Streak Mode
+### Demo 02: Using Xcode to Create Streak Mode Feature
 
 **Prompt 1: Implement Streak Mode Feature**
 
@@ -43,7 +43,7 @@ For the standard user, a wrong guess is nearly free (you just see the next clue)
 In Streak mode, every guess is a real gamble: "I'm 80% sure it's Chile… but is 80% enough to bet the whole run?".
 ```
 
-## Demo 03: Using Cursor to Implement Blitz Mode
+## Demo 03: Using Cursor to Implement Blitz Mode Feature
 
 **Prompt 1: Implement Blitz Mode Feature**
 
