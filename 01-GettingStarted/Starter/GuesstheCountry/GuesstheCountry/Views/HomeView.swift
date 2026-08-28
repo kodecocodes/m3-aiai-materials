@@ -3,7 +3,7 @@
 import SwiftUI
 
 struct HomeView: View {
-  @State private var selectedGameMode: GameModes = .classic // by default
+  @State private var selectedGameMode: GameModes = .classic
   @Environment(GameSessionManager.self)
   private var gameSession
 
@@ -14,7 +14,7 @@ struct HomeView: View {
       GameModesView(selectedGameMode: $selectedGameMode)
       PointsView()
       Spacer()
-      StartGameView(selectedGameMode: selectedGameMode) // read-only selectedGameMode
+      StartGameView(selectedGameMode: selectedGameMode)
     }
     .background(Color(.systemBackground))
   }
@@ -91,7 +91,7 @@ struct GameModesView: View {
 
 struct PointsView: View {
   var body: some View {
-    Text("20 · 15 · 10 · 5 points by clue")
+    Text("20 · 15 · 10 · 5 points per clue")
       .font(.caption)
       .foregroundStyle(.secondary)
       .padding(.top, 14)
@@ -101,7 +101,7 @@ struct PointsView: View {
 struct StartGameView: View {
   @Environment(GameSessionManager.self)
   private var gameSession
-  let selectedGameMode: GameModes // this view only reads the selectedGameMode
+  let selectedGameMode: GameModes
 
   var body: some View {
     Button("Start Game") {

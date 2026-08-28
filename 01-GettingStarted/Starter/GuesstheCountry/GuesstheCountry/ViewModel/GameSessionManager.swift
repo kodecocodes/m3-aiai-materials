@@ -4,8 +4,8 @@ import Foundation
 
 @Observable
 class GameSessionManager {
-  var currentMode: GameModes = .classic // by default
-  var phase: Phase = .home // by default
+  var currentMode: GameModes = .classic
+  var phase: Phase = .home
   var allCountries: [Country] = []
 
   static let pointsPerClue = [20, 15, 10, 5]

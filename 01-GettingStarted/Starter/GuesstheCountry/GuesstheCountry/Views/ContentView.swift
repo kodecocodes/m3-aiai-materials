@@ -15,7 +15,7 @@ struct MyApp: App {
 
 struct ContentView: View {
   @Environment(GameSessionManager.self)
-    private var gameSession
+  private var gameSession
 
   var body: some View {
     switch gameSession.phase {

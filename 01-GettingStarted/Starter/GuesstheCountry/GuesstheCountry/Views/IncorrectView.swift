@@ -4,7 +4,7 @@ import SwiftUI
 
 struct IncorrectView: View {
   @Environment(GameSessionManager.self)
-    private var gameSession
+  private var gameSession
   var body: some View {
     VStack(spacing: 24) {
       Spacer()

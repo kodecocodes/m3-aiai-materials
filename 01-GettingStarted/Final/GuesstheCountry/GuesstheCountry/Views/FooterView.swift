@@ -4,7 +4,7 @@ import SwiftUI
 
 struct FooterView: View {
   @Environment(GameSessionManager.self)
-    private var gameSession
+  private var gameSession
   var body: some View {
     VStack(spacing: 14) {
       Button(gameSession.isLastQuestion ? "See Summary" : "Next Country") {
@@ -23,8 +23,6 @@ struct FooterView: View {
     .padding(.bottom, 12)
   }
 }
-
-
 #Preview {
   FooterView().environment(GameSessionManager())
 }

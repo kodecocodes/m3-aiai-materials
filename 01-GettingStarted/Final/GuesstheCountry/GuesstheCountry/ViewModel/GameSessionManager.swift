@@ -4,8 +4,8 @@ import Foundation
 
 @Observable
 class GameSessionManager {
-  var currentMode: GameModes = .classic // by default
-  var phase: Phase = .home // by default
+  var currentMode: GameModes = .classic
+  var phase: Phase = .home
   var allCountries: [Country] = []
 
   static let classicPointsPerClue = [20, 15, 10, 5]
@@ -120,7 +120,7 @@ class GameSessionManager {
 
       phase = .correct(score: score, cluesUsed: cluesUsed)
     } else if currentMode == .streak {
-      // In streak mode a wrong guess ends the run immediately
+      // In streak mode, a wrong guess ends the run immediately.
       results.append(
         CountryGuessed(
           answer: question.answer,

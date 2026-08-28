@@ -10,7 +10,7 @@ struct PrimaryButtonStyle: ButtonStyle {
   private struct PrimaryButton: View {
     let configuration: Configuration
     @Environment(\.isEnabled)
-      private var isEnabled
+    private var isEnabled
     var body: some View {
       configuration.label
         .font(.headline)
@@ -32,7 +32,7 @@ struct SecondaryButtonStyle: ButtonStyle {
   private struct SecondaryButton: View {
     let configuration: Configuration
     @Environment(\.isEnabled)
-      private var isEnabled
+    private var isEnabled
     var body: some View {
       configuration.label
         .font(.headline)

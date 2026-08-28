@@ -4,7 +4,7 @@ import SwiftUI
 
 struct CorrectView: View {
   @Environment(GameSessionManager.self)
-    private var gameSession
+  private var gameSession
   let score: Int
   let cluesUsed: Int
 

@@ -1,19 +1,16 @@
 /// Copyright (c) 2026 Kodeco Inc. See COPYRIGHT for details.
 
-/// **Classic**: When the user incorrectly guesses the country name in the middle of the game with clues remaining,
-/// show a try again screen and encourage the user to continue the game with remaining clues. No difference in points.
-/// When the user incorrectly guesses the country name in the middle of the game with 0 clues remaining,
-/// show a revealed screen with correct answer and a fun fact.
-/// When the user correctly guesses the country name, a correct screen is shown with points and clues used for that one country.
+/// **Classic**: If the user makes an incorrect guess while clues remain, show
+/// the try-again screen and let them continue with the remaining clues. If no
+/// clues remain, reveal the correct answer and a fun fact. A correct guess shows
+/// the points earned and the number of clues used.
 ///
-/// **Streak**: Streak mode user takes the risk and continues to play the next rounds. The risk is: A wrong guess ends the run instantly,
-/// even if clues remain. For the standard user, a wrong guess is nearly free (you just see the next clue).
-/// In Streak mode, every guess is a real gamble: "I'm 80% sure it's Chile… but is 80% enough to bet the whole run?".
+/// **Streak**: The user continues playing for as long as they keep guessing
+/// correctly. One incorrect guess ends the run immediately, even if clues remain.
 ///
-/// **Blitz**: Users can see one clue for a maximum time of 20 seconds. Once the timer expires - the next clue is shown automatically.
-/// Users can’t go back to see the previous clue. The idea is users will have to read the clues in this time and also remember them to make the guess.
-/// The point system now changes. It will be 40 (end of 1st clue), 30 (end of 2nd clue), 20 (end of 3rd clue), 10 (end of 4th clue). In this mode, the users get an opportunity to score more points. Maximum points for each round will be 40 now (instead of 20 in standard mode).
-
+/// **Blitz**: Each clue appears for up to 20 seconds before the next clue appears
+/// automatically. The user can't return to previous clues. Guesses are worth 40,
+/// 30, 20, or 10 points, depending on the clue used.
 
 enum GameModes: String, CaseIterable, Identifiable {
   case classic
@@ -34,7 +31,7 @@ enum GameModes: String, CaseIterable, Identifiable {
 
   var subtitle: String {
     switch self {
-    case .classic: "Four clues for each country, take your time to guess"
+    case .classic: "Four clues for each country. Take your time to guess."
     case .streak: "Endless run. One wrong guess ends it."
     case .blitz: "Each clue vanishes after 20 seconds."
     }

@@ -3,7 +3,7 @@
 import SwiftUI
 
 struct HomeView: View {
-  @State private var selectedGameMode: GameModes = .classic // by default
+  @State private var selectedGameMode: GameModes = .classic
   @Environment(GameSessionManager.self)
   private var gameSession
 
@@ -14,7 +14,7 @@ struct HomeView: View {
       GameModesView(selectedGameMode: $selectedGameMode)
       PointsView(selectedGameMode: selectedGameMode)
       Spacer()
-      StartGameView(selectedGameMode: selectedGameMode) // read-only selectedGameMode
+      StartGameView(selectedGameMode: selectedGameMode)
     }
     .background(Color(.systemBackground))
   }
@@ -96,7 +96,7 @@ struct PointsView: View {
     let points = selectedGameMode == .blitz
       ? GameSessionManager.blitzPointsPerClue
       : GameSessionManager.classicPointsPerClue
-    return points.map(String.init).joined(separator: " · ") + " points by clue"
+    return points.map(String.init).joined(separator: " · ") + " points per clue"
   }
 
   var body: some View {
@@ -110,7 +110,7 @@ struct PointsView: View {
 struct StartGameView: View {
   @Environment(GameSessionManager.self)
   private var gameSession
-  let selectedGameMode: GameModes // this view only reads the selectedGameMode
+  let selectedGameMode: GameModes
 
   var body: some View {
     Button("Start Game") {
