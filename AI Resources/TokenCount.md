@@ -62,7 +62,7 @@ Since a single Xcode conversation covered the following topics:
 
 **Model**: cursor-grok-4.6-medium | **Input**: 29,606 | **Cache Read**: 44,160 | **Cache Write**: 0 | **Output**: 721
 
->**Note**: Using this same prompt with the Claude Agent in Xcode returned: \
+>**Note**: For comparison, running this same prompt in Claude Agent for Xcode returned: \
 >**Total Tokens**:  ~80,493 | **Model**: opus-4-8 | **Input**: 6,063 | **Cache Create**: 28,488 | **Cache Read**: 44,241 | **Output**: 1,701  
 
 ### Implementing the Blitz Mode Feature
