@@ -41,7 +41,7 @@ The total token count at the end of the session for all three topics above:
 
 | Model | Input | Cache Create | Cache Read | Output | Total Tokens |
 | ---: | ---: | ---: | ---: | ---: | ---: |
-|opus-4-8 | 6,532 | 47,512 | 453,152 | 11,137 | **~~518,333** |
+|opus-4-8 | 6,532 | 47,512 | 453,152 | 11,137 | **~518,333** |
 
 ### Using AI Agents to Interact With Your App in the Simulator 
 
@@ -52,7 +52,7 @@ Since a single Xcode conversation covered the following topics:
 
 | Model | Input | Cache Create | Cache Read | Output | Total Tokens |
 | ---: | ---: | ---: | ---: | ---: | ---: |
-|sonnet-4-6 | 89 | 91,473 | 1,980,751 | 9,735 | **~~~2,082,048** |
+|sonnet-4-6 | 89 | 91,473 | 1,980,751 | 9,735 | **~2,082,048** |
 
 ## Token Count for Cursor
 
@@ -69,10 +69,10 @@ Since a single Xcode conversation covered the following topics:
 
 | Model | Input | Cache Read | Cache Write | Output | Total Count |
 | ---: | ---: | ---: | ---: | ---: | ---: |
-|cursor-grok-4.6-medium | 173,482 | 369,152 | 0 | 11,864 | **~ 554,498** |
+|cursor-grok-4.6-medium | 173,482 | 369,152 | 0 | 11,864 | **~554,498** |
 
 ### Connecting Cursor to Xcode's MCP
 
 | Model | Input | Cache Read | Cache Write | Output | Total Count |
 | ---: | ---: | ---: | ---: | ---: | ---: |
-|cursor-grok-4.6-medium | 172,721 | 391,424 | 0 | 4,755 | **~ 568,900** | 
+|cursor-grok-4.6-medium | 172,721 | 391,424 | 0 | 4,755 | **~568,900** | 
