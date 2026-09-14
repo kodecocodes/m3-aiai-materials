@@ -33,15 +33,15 @@ Since a single Xcode conversation covered the following topics:
 
 The total token count at the end of the session for all three topics above:
 
-**Total Tokens**: ~227,802 
-
-**Model**: opus-4-8 | **Input**: 8,238 | **Cache Create**: 82,624 | **Cache Read**: 128,706 | **Output:** 8,234 
+| Model | Input | Cache Create | Cache Read | Output | Total Tokens |
+| ---: | ---: | ---: | ---: | ---: | ---: |
+|opus-4-8 | 8,238 | 82,624 | 128,706 | 8,234 | **~227,802** |
 
 ### Implementing the Streak Mode Feature
 
-**Total Tokens**: ~518,333
-
-**Model**: opus-4-8 | **Input**: 6,532 | **Cache Create**: 47,512 | **Cache Read**: 453,152 | **Output**: 11,137 
+| Model | Input | Cache Create | Cache Read | Output | Total Tokens |
+| ---: | ---: | ---: | ---: | ---: | ---: |
+|opus-4-8 | 6,532 | 47,512 | 453,152 | 11,137 | **~~518,333** |
 
 ### Using AI Agents to Interact With Your App in the Simulator 
 
@@ -50,29 +50,29 @@ Since a single Xcode conversation covered the following topics:
 - AI Agent Describes the Running Game.
 - AI Agent Plays the Game.
 
-**Total Tokens**: ~2,082,048
-
-**Model**: sonnet-4-6 | **Input**: 89 | **Cache Create**: 91,473 | **Cache Read**: 1,980,751 | **Output**: 9,735  
+| Model | Input | Cache Create | Cache Read | Output | Total Tokens |
+| ---: | ---: | ---: | ---: | ---: | ---: |
+|sonnet-4-6 | 89 | 91,473 | 1,980,751 | 9,735 | **~~~2,082,048** |
 
 ## Token Count for Cursor
 
 **Brief Overview of the Guessing Game**
 
-**Token count**: ~74,487
-
-**Model**: cursor-grok-4.6-medium | **Input**: 29,606 | **Cache Read**: 44,160 | **Cache Write**: 0 | **Output**: 721
+| Model | Input | Cache Read | Cache Write | Output | Total Count |
+| ---: | ---: | ---: | ---: | ---: | ---: |
+|cursor-grok-4.6-medium | 29,606 | 44,160 | 0 | 721 | **~74,487** |
 
 >**Note**: For comparison, running _just_ this same topic in Claude Agent for Xcode returned: \
 >**Total Tokens**:  ~80,493 | **Model**: opus-4-8 | **Input**: 6,063 | **Cache Create**: 28,488 | **Cache Read**: 44,241 | **Output**: 1,701  
 
 ### Implementing the Blitz Mode Feature
 
-**Token count**: ~554,498
-
-**Model**: cursor-grok-4.6-medium | **Input**: 173,482 | **Cache Read**: 369,152 | **Cache Write**: 0 | **Output**: 11,864  
+| Model | Input | Cache Read | Cache Write | Output | Total Count |
+| ---: | ---: | ---: | ---: | ---: | ---: |
+|cursor-grok-4.6-medium | 173,482 | 369,152 | 0 | 11,864 | **~ 554,498** |
 
 ### Connecting Cursor to Xcode's MCP
 
-**Token count**: ~568,900
-
-**Model**: cursor-grok-4.6-medium | **Input**: 172,721 | **Cache Read**: 391,424 | **Cache Write**: 0 | **Output**: 4,755 
+| Model | Input | Cache Read | Cache Write | Output | Total Count |
+| ---: | ---: | ---: | ---: | ---: | ---: |
+|cursor-grok-4.6-medium | 172,721 | 391,424 | 0 | 4,755 | **~ 568,900** | 
