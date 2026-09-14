@@ -10,7 +10,7 @@ In Xcode 27 beta 4, Xcode and Claude don't show the token count. Therefore, [**c
 
 ### Cursor
 
-The Cursor dashboard provides a clear breakdown of token usage.
+The Cursor dashboard provides a clear breakdown of token count.
 
 ## Important Caveats Before Proceeding
 
@@ -50,13 +50,13 @@ Since a single Xcode conversation covered the following topics:
 - AI Agent Describes the Running Game.
 - AI Agent Plays the Game.
 
-An estimate at the end of both the above the interactions above:
+An estimate at the end of both the interactions above:
 
 | Model | Input | Cache Create | Cache Read | Output | Total Tokens |
 | ---: | ---: | ---: | ---: | ---: | ---: |
 |sonnet-4-6 | 89 | 91,473 | 1,980,751 | 9,735 | **~2,082,048** |
 
-## Token  for Cursor
+## Token Usage for Cursor
 
 **Brief Overview of the Guessing Game**
 
