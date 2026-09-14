@@ -63,7 +63,9 @@ Since a single Xcode conversation covered the following topics:
 |cursor-grok-4.6-medium | 29,606 | 44,160 | 0 | 721 | **~74,487** |
 
 >**Note**: For comparison, running _just_ this same topic in Claude Agent for Xcode returned: \
->**Total Tokens**:  ~80,493 | **Model**: opus-4-8 | **Input**: 6,063 | **Cache Create**: 28,488 | **Cache Read**: 44,241 | **Output**: 1,701  
+>| Model | Input | Cache Create | Cache Read | Output | Total Tokens |
+>| ---: | ---: | ---: | ---: | ---: | ---: |
+>|opus-4-8 | 6,063 | 28,488 | 44,241 | 1,701 | **~80,493** |
 
 ### Implementing the Blitz Mode Feature
 
