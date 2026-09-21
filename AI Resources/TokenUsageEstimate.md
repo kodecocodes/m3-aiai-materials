@@ -19,7 +19,7 @@ Here are a few key points:
 - The numbers reported here are approximate.
 - Token counts can vary significantly depending on the model used.
 - AI output can vary on every run.
-- Throughout this program, for the Claude Agent in Xcode, it is recommended to use `/usage` in the `Xcode conversation` to know more on your usage quota and incurred costs. 
+- Throughout this course, use `/usage` in an Xcode conversation with Claude Agent to learn more about your usage quota and costs.
 
 ## Token Usage for Claude Agent in Xcode
 
@@ -27,11 +27,11 @@ Here are a few key points:
 
 Since a single Xcode conversation covered the following topics:
 
-- Brief Overview of the Guessing Game.
-- Architecture and View Details.
-- Navigation Graphs.
+- Brief overview of the guessing game
+- Architecture and view details
+- Navigation graphs
 
-The approximate total token  at the end of the session, for all three interactions above:
+The approximate total token count at the end of the session for all three interactions was:
 
 | Model | Input | Cache Create | Cache Read | Output | Total Tokens |
 | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -43,14 +43,14 @@ The approximate total token  at the end of the session, for all three interactio
 | ---: | ---: | ---: | ---: | ---: | ---: |
 |opus-4-8 | 6,532 | 47,512 | 453,152 | 11,137 | **~518,333** |
 
-### Using AI Agents to Interact With Your App in the Simulator 
+### Using AI Agents to Interact With Your App in the Simulator
 
-Since a single Xcode conversation covered the following topics: 
+Since a single Xcode conversation covered the following topics:
 
-- AI Agent Describes the Running Game.
-- AI Agent Plays the Game.
+- AI agent describes the running game
+- AI agent plays the game
 
-An estimate at the end of both the interactions above:
+The approximate total token count at the end of both interactions was:
 
 | Model | Input | Cache Create | Cache Read | Output | Total Tokens |
 | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -60,23 +60,24 @@ An estimate at the end of both the interactions above:
 
 **Brief Overview of the Guessing Game**
 
-| Model | Input | Cache Read | Cache Write | Output | Total  |
+| Model | Input | Cache Read | Cache Write | Output | Total |
 | ---: | ---: | ---: | ---: | ---: | ---: |
 |cursor-grok-4.6-medium | 29,606 | 44,160 | 0 | 721 | **~74,487** |
 
->**Note**: For comparison, running _just_ this same topic in Claude Agent for Xcode returned:
->| Model | Input | Cache Create | Cache Read | Output | Total Tokens |
->| ---: | ---: | ---: | ---: | ---: | ---: |
->|opus-4-8 | 6,063 | 28,488 | 44,241 | 1,701 | **~80,493** |
+> **Note**: For comparison, running _just_ this same topic in Claude Agent for Xcode returned:
+>
+> | Model | Input | Cache Create | Cache Read | Output | Total Tokens |
+> | ---: | ---: | ---: | ---: | ---: | ---: |
+> |opus-4-8 | 6,063 | 28,488 | 44,241 | 1,701 | **~80,493** |
 
 ### Implementing the Blitz Mode Feature
 
-| Model | Input | Cache Read | Cache Write | Output | Total  |
+| Model | Input | Cache Read | Cache Write | Output | Total |
 | ---: | ---: | ---: | ---: | ---: | ---: |
 |cursor-grok-4.6-medium | 173,482 | 369,152 | 0 | 11,864 | **~554,498** |
 
 ### Connecting Cursor to Xcode's MCP
 
-| Model | Input | Cache Read | Cache Write | Output | Total  |
+| Model | Input | Cache Read | Cache Write | Output | Total |
 | ---: | ---: | ---: | ---: | ---: | ---: |
-|cursor-grok-4.6-medium | 172,721 | 391,424 | 0 | 4,755 | **~568,900** | 
+|cursor-grok-4.6-medium | 172,721 | 391,424 | 0 | 4,755 | **~568,900** |
