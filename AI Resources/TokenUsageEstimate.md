@@ -1,6 +1,6 @@
 # Token Usage
 
-This document outlines the approximate token usage in the first module.
+This document outlines the approximate token usage in the **Getting Started** module.
 
 ## Tools for Measuring Token Count
 
